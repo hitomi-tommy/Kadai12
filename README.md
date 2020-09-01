@@ -1,24 +1,23 @@
-# README
+#万葉様新入社員教育課題
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##テーブル
 
-Things you may want to cover:
+###User
+|データ型|カラム名|
+|string|name|
+|string|email|
+|string|password_digest|
 
-* Ruby version
+###User
+|データ型|カラム名|
+|text|task_name|
+|text|description|
+|integer|user_id|
+|datetime|deadline|
+|integer|priority|
+|string|status|
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###Label
+|データ型|カラム名|
+|integer|user_id|
+|integer|task_id|
