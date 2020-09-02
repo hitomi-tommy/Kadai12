@@ -8,12 +8,12 @@
 |string|email|
 |string|password_digest|
 
-###User
+###Task
 |データ型|カラム名|
-|text|task_name|
+|string|task_name|
 |text|description|
 |integer|user_id|
-|datetime|deadline|
+|date|deadline|
 |integer|priority|
 |string|status|
 
