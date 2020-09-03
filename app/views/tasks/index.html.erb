@@ -7,7 +7,7 @@
 <% @task.each do |task| %>
   <tr>
     <td><%= task.name %></td>
-    <td><%= task.description %></td>
+    <td><%= task.created_at %></td>
     <td><%= link_to '詳細を確認する', task_path(task.id) %></td>
   </tr>
 <% end %>
