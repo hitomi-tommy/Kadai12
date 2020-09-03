@@ -1,32 +1,34 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update]
   def index
     @task = Task.all
-  end
-
-  def show
-    @task = Task.find(params[:id])
   end
 
   def new
     @task = Task.new
   end
 
-  def edit
-    @task = Task.find(params[:id])
-  end
-
-  def update
-    @task = Task.find(params[:id])
-    if @task.update(task_params)
-      redirect_to tasks_path, notice: "編集しました！"
+  def create
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to new_task_path, notice: "タスクを作成しました"
     else
-      render :edit
+      render :new
     end
   end
 
-  def create
-    Task.create(task_params)
-    redirect_to new_task_path
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: "タスクを編集しました"
+    else
+      render :edit
+    end
   end
 
   private
@@ -34,4 +36,7 @@ class TasksController < ApplicationController
     params.require(:task).permit(:name, :description)
   end
 
+  def set_task
+    @task = Task.find(params[:id])
+  end
 end
