@@ -1,23 +1,26 @@
-#万葉様新入社員教育課題
+# 万葉様新入社員教育課題
 
-##テーブル
+## テーブル
 
-###User
-|データ型|カラム名|
-|string|name|
-|string|email|
-|string|password_digest|
+### User
+データ型|カラム名
+:---|:---
+string|name
+string|email
+string|password_digest
 
-###User
-|データ型|カラム名|
-|text|task_name|
-|text|description|
-|integer|user_id|
-|datetime|deadline|
-|integer|priority|
-|string|status|
+### Task
+データ型|カラム名
+:---|:---
+text|task_name
+text|description
+integer|user_id
+datetime|deadline
+integer|priority
+string|status|
 
-###Label
-|データ型|カラム名|
-|integer|user_id|
-|integer|task_id|
+### Label
+データ型|カラム名
+:---|:---
+integer|user_id
+integer|task_id
