@@ -16,7 +16,7 @@ text|description
 integer|user_id
 datetime|deadline
 integer|priority
-string|status|
+string|status
 
 ### Label
 データ型|カラム名
