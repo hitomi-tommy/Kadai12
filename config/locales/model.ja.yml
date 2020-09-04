@@ -1,4 +1,8 @@
 ja:
+  notice:
+    create: タスクを作成しました！
+    update: タスクを編集しました！
+    destroy: タスクを削除しました！
   activerecord:
     models:
       blog: ブログ
