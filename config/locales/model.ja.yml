@@ -3,6 +3,7 @@ ja:
     task_list: タスク一覧
     task_name: タスク名
     task_created_at: 作成日時
+    task_deadline: 終了期限
     check_detail: 詳細を確認する
     edit_task: 編集する
     delete_task: 削除する
