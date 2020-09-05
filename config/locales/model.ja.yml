@@ -4,12 +4,17 @@ ja:
     task_name: タスク名
     task_created_at: 作成日時
     task_deadline: 終了期限
+    task_status: ステータス
     check_detail: 詳細を確認する
     edit_task: 編集する
     delete_task: 削除する
     confirm: 本当に削除しますか？
     create_new_task: タスクを新規作成する
     sort_by_deadline: 終了期限でソートする
+    please_select: 選択してください
+    not_yet_started: 未着手
+    in_progress: 着手中
+    completed: 完了
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！

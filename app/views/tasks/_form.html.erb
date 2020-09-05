@@ -21,6 +21,10 @@
       <%= form.label :deadline %>
       <%= form.date_field :deadline %>
     </div>
+    <div class="task_status">
+      <%= form.label :status %>
+      <%= form.select :status, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: [t('view.please_Select')] %>
+    </div>
   <%= form.submit %>
 <% end %>
 <%= link_to 'タスク一覧画面に戻る', tasks_path %>
