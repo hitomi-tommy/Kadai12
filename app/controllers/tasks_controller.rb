@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to new_task_path, notice: t('notice.create')
+      redirect_to tasks_path, notice: t('notice.create')
     else
       render :new
     end
