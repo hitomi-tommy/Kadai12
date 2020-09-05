@@ -1,0 +1,29 @@
+ja:
+  view:
+    task_list: タスク一覧
+    task_name: タスク名
+    task_created_at: 作成日時
+    check_detail: 詳細を確認する
+    edit_task: 編集する
+    delete_task: 削除する
+    confirm: 本当に削除しますか？
+  notice:
+    create: タスクを作成しました！
+    update: タスクを編集しました！
+    destroy: タスクを削除しました！
+  activerecord:
+    models:
+      blog: ブログ
+      user: ユーザー
+    attributes:
+      blog:
+        title: タイトル
+        content: 内容
+      user:
+        title: タイトル
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶

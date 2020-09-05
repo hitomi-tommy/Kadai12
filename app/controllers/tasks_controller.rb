@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
-    @task = Task.all
+    @task = Task.all.order(created_at: :DESC)
   end
 
   def new
@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to new_task_path, notice: "タスクを作成しました"
+      redirect_to tasks_path, notice: t('notice.create')
     else
       render :new
     end
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "タスクを編集しました"
+      redirect_to tasks_path, notice: t('notice.update')
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: "タスクを削除しました！"
+    redirect_to tasks_path, notice: t('notice.destroy')
   end
 
   private
