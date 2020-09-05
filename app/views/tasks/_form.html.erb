@@ -17,6 +17,10 @@
       <%= form.label :description %>
       <%= form.text_field :description %>
     </div>
+    <div class="task_deadline">
+      <%= form.label :deadline %>
+      <%= form.date_field :deadline %>
+    </div>
   <%= form.submit %>
 <% end %>
 <%= link_to 'タスク一覧画面に戻る', tasks_path %>
