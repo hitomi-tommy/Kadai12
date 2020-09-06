@@ -1,3 +1,17 @@
+<div class="search">
+  <%= form_with url: tasks_path, method: :get, local: true do |form| %>
+    <div class="task_name">
+      <%= form.label :name, t('view.task_name') %>
+      <%= form.text_field :name, placeholder: t('view.search_with_task_name') %>
+    </div>
+    <div class="task_status">
+      <%= form.label :status, t('view.task_status') %>
+      <%= form.select :status, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: t('view.please_select') %>
+    </div>
+    <%= form.hidden_field :search, value: 'true' %>
+    <%= form.submit (t('helpers.submit.search')) %>
+  <% end %>
+</div>
 <h1><%= t('view.task_list') %></h1>
 <p><%= notice %></p>
 <table>

@@ -15,10 +15,16 @@ ja:
     not_yet_started: 未着手
     in_progress: 着手中
     completed: 完了
+    search_with_task_name: タスク名で検索する
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！
     destroy: タスクを削除しました！
+  helpers:
+    submit:
+      create: 登録する
+      search: 検索する
+      update: 更新する
   activerecord:
     models:
       blog: ブログ

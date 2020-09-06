@@ -25,6 +25,6 @@
       <%= form.label :status %>
       <%= form.select :status, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: [t('view.please_Select')] %>
     </div>
-  <%= form.submit %>
+  <%= form.submit (t('helpers.submit.create')) %>
 <% end %>
 <%= link_to 'タスク一覧画面に戻る', tasks_path %>

@@ -6,6 +6,9 @@ class TasksController < ApplicationController
     else
       @task = Task.all.order(created_at: :DESC)
     end
+
+    if params[:search].present?
+    end
   end
 
   def new
