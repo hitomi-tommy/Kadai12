@@ -8,12 +8,12 @@ class TasksController < ApplicationController
     end
 
     if params[:search].present?
-      if params[:name].present? && params[:status].present?
-        @task = Task.status(params[:status]).task_name_like(params[:name])
-      elsif params[:name].present?
-        @task = Task.task_name_like(params[:name])
-      elsif params[:status].present?
-        @task = Task.status(params[:status])
+      if params[:name_search].present? && params[:status_search].present?
+        @task = Task.status(params[:status_search]).task_name_like(params[:name_search])
+      elsif params[:name_search].present?
+        @task = Task.task_name_like(params[:name_search])
+      elsif params[:status_search].present?
+        @task = Task.status(params[:status_search])
       end
     end
   end

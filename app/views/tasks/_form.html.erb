@@ -9,21 +9,21 @@
         </ul>
       </div>
     <% end %>
-    <div class="task_name">
+    <div class="name">
       <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
-    <div class="task_description">
+    <div class="description">
       <%= form.label :description %>
       <%= form.text_field :description %>
     </div>
-    <div class="task_deadline">
+    <div class="deadline">
       <%= form.label :deadline %>
       <%= form.date_field :deadline %>
     </div>
-    <div class="task_status">
+    <div class="status">
       <%= form.label :status %>
-      <%= form.select :status, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: [t('view.please_Select')] %>
+      <%= form.select :status, [t('view.not_yet_started'), t('view.in_progress'), t('view.completed')], include_blank: [t('view.please_Select')] %>
     </div>
   <%= form.submit (t('helpers.submit.create')) %>
 <% end %>

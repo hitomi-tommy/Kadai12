@@ -1,12 +1,12 @@
 <div class="search">
   <%= form_with url: tasks_path, method: :get, local: true do |form| %>
-    <div class="task_name">
+    <div class="name">
       <%= form.label :name, t('view.task_name') %>
-      <%= form.text_field :name, placeholder: t('view.search_with_task_name') %>
+      <%= form.text_field :name_search, placeholder: t('view.search_with_task_name') %>
     </div>
-    <div class="task_status">
+    <div class="status">
       <%= form.label :status, t('view.task_status') %>
-      <%= form.select :status, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: t('view.please_select') %>
+      <%= form.select :status_search, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: t('view.please_select') %>
     </div>
     <%= form.hidden_field :search, value: 'true' %>
     <%= form.submit (t('helpers.submit.search')) %>
@@ -29,7 +29,7 @@
     <td class="status_row"><%= task.status %></td>
     <td><%= link_to t('view.check_detail'), task_path(task.id) %></td>
     <td><%= link_to t('view.edit_task'), edit_task_path(task.id) %></td>
-    <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete,data: { confirm: t('view.confirm') } %></td>
+    <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: { confirm: t('view.confirm') } %></td>
   </tr>
 <% end %>
 </table>
