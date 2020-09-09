@@ -1,6 +1,7 @@
 <h1>タスク詳細画面</h1>
-<p>タスク名: <%= @task.name %></p>
-<p>内容: <%= @task.description %></p>
-<p>終了期限: <%= @task.deadline %></p>
-<p>ステータス: <%= @task.status %></p>
+<p><%= t('view.task_name') %>: <%= @task.name %></p>
+<p><%= t('view.task_description') %>: <%= @task.description %></p>
+<p><%= t('view.task_deadline') %>: <%= @task.deadline %></p>
+<p><%= t('view.task_status') %>: <%= @task.status %></p>
+<p><%= t('view.task_priority') %>: <%= @task.priority %></p>
 <%= link_to 'タスク一覧画面に戻る', tasks_path %>
