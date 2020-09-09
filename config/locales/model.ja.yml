@@ -2,6 +2,7 @@ ja:
   view:
     task_list: タスク一覧
     task_name: タスク名
+    task_description: 詳細内容
     task_created_at: 作成日時
     task_deadline: 終了期限
     task_status: ステータス
@@ -21,6 +22,12 @@ ja:
     high: 高
     middle: 中
     low: 低
+  pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！

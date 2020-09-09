@@ -22,7 +22,7 @@
     <th><%= t('view.task_status') %></th>
     <th><%= t('view.task_priority') %></th>
   </tr>
-<% @task.each do |task| %>
+<% @tasks.each do |task| %>
   <tr>
     <td class="task_row"><%= task.name %></td>
     <td ><%= task.created_at %></td>
@@ -34,6 +34,7 @@
     <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: { confirm: t('view.confirm') } %></td>
   </tr>
 <% end %>
+<div><%= paginate @tasks %></div>
 </table>
 <%= link_to t('view.create_new_task'), new_task_path %>
 <%= link_to t('view.sort_by_deadline'), tasks_path(sort_expired: "true") %>
