@@ -51,31 +51,39 @@ RSpec.describe 'タスク管理機能', type: :system do
       FactoryBot.create(:second_task, name: "happiness", description: 'in giving', status: '未着手')
       FactoryBot.create(:third_task, name: "test", description: 'will happen in the end.', status: '完了')
     end
-    context 'タイトルであいまい検索をした場合' do
-      it "検索キーワードを含むタスクで絞り込まれる" do
-        visit tasks_path
-        # タスクの検索欄に検索ワードを入力する (例: task)
-        fill_in 'name_search', with: 'to'
-        # 検索ボタンを押す
-        click_on (I18n.t('helpers.submit.search'))
-        expect(page).to have_content 'Totoro'
-
-      end
-    end
-
+  #
+  #   context 'タイトルであいまい検索をした場合' do
+  #     it "検索キーワードを含むタスクで絞り込まれる" do
+  #       visit tasks_path
+  #       # タスクの検索欄に検索ワードを入力する (例: task)
+  #       fill_in 'name_search', with: 'ta'
+  #       # 検索ボタンを押す
+  #       click_on (I18n.t('helpers.submit.search'))
+  #       expect(page).to have_content 'task'
+  #
+  #     end
+  #   end
+  # end
+  #
   #   context 'ステータス検索をした場合' do
   #     it "ステータスに完全一致するタスクが絞り込まれる" do
   #       visit tasks_path
   #       select (I18n.t('view.not_yet_started')), from: 'status_search'
   #       click_on (I18n.t('helpers.submit.search'))
-  #       expect(page).to have_selector 'td',text: (I18n.t('view.not_yet_started'))
+  #       expect(page).to have_content '未着手'
   #     end
   #   end
-  #   # context 'タイトルのあいまい検索とステータス検索をした場合' do
-  #   #   it "検索キーワードをタイトルに含み、かつステータスに完全一致するタスク絞り込まれる" do
-  #   #
-  #   #   end
-  #   # end
+
+    context 'タイトルのあいまい検索とステータス検索をした場合' do
+      it "検索キーワードをタイトルに含み、かつステータスに完全一致するタスク絞り込まれる" do
+        visit tasks_path
+        fill_in 'name_search', with: 'ta'
+        select (I18n.t('view.not_yet_started')), from: 'status_search'
+        click_on (I18n.t('helpers.submit.search'))
+        expect(page).to have_content 'task'
+        expect(page).to have_content '未着手'
+      end
+    end
   end
 
   # describe '一覧表示機能' do

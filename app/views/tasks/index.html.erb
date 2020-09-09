@@ -26,7 +26,7 @@
     <td class="task_row"><%= task.name %></td>
     <td ><%= task.created_at %></td>
     <td class="deadline_row"><%= task.deadline %></td>
-    <td class="status_row"><%= task.status %></td>
+    <td><%= task.status %></td>
     <td><%= link_to t('view.check_detail'), task_path(task.id) %></td>
     <td><%= link_to t('view.edit_task'), edit_task_path(task.id) %></td>
     <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: { confirm: t('view.confirm') } %></td>

@@ -3,7 +3,7 @@ FactoryBot.define do
   # 作成するテストデータの名前を「task」とします
   # （実際に存在するクラス名と一致するテストデータの名前をつければ、そのクラスのテストデータを自動で作成します）
   factory :task do
-    name { 'Totoro' }
+    name { 'task' }
     description { 'Factoryで作ったデフォルトのコンテント１' }
     deadline { Date.new(2020, 9, 15) }
     status { '未着手' } #(I18n.t('view.in_progress'))}
