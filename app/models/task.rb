@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  belongs_to :user
   validates :name, presence: true, length: { maximum: 75 }
   validates :description, presence: true, length: { maximum: 400 }
   scope :task_name_like, -> name { where('name LIKE ?', "%#{name}%") }
