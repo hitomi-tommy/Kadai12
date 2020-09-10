@@ -1,3 +1,4 @@
+
 <%= form_with(model: @task, local: true) do |form| %>
   <% if @task.errors.any? %>
       <div id="error_explanation">
@@ -9,14 +10,27 @@
         </ul>
       </div>
     <% end %>
-    <div class="task_name">
-      <%= form.label :name %>
+  
+    <div class="name">
+      <%= form.label t('view.task_name') %>
       <%= form.text_field :name %>
     </div>
-    <div class="task_description">
-      <%= form.label :description %>
+    <div class="description">
+      <%= form.label t('view.task_description') %>
       <%= form.text_field :description %>
     </div>
-  <%= form.submit %>
+    <div class="deadline">
+      <%= form.label t('view.task_deadline') %>
+      <%= form.date_field :deadline %>
+    </div>
+    <div class="status">
+      <%= form.label t('view.task_status') %>
+      <%= form.select :status, [t('view.not_yet_started'), t('view.in_progress'), t('view.completed')], include_blank: [t('view.please_Select')] %>
+    </div>
+    <div class="priority">
+    <%= form.label t('view.task_priority') %>
+    <%= form.select :priority, [t('view.high'), t('view.middle'), t('view.low')], include_blank: [t('view.please_Select')] %>
+    </div>
+  <%= form.submit (t('helpers.submit.create')) %>
 <% end %>
 <%= link_to 'タスク一覧画面に戻る', tasks_path %>

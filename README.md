@@ -26,20 +26,20 @@ integer|task_id
 
 
 ## Herokuへのデプロイ手順
-1 デプロイするディレクトリへ移動する
-1 アセットプリコンパイルする
+1. デプロイするディレクトリへ移動する
+1. アセットプリコンパイルする
   `$ rails assets:precompile RAILS_ENV=production`
-1 コミットする
+1. コミットする
   `$ git add -A`
   `$ git commit -m "init"`
-1 Herokuに新しいアプリを作成する
+1. Herokuに新しいアプリを作成する
   `$ heroku create`
-1 Heroku buildpackを追加する（必要に合わせて）
+1. Heroku buildpackを追加する（必要に合わせて）
   `$ heroku buildpacks:set heroku/ruby`
   `$ heroku buildpacks:add --index 1 heroku/nodejs`
-1 Herokuにデプロイする
+1. Herokuにデプロイする
   `$ git push heroku master`
-1 データベースを移行する
+1. データベースを移行する
   `$ heroku run rails db:migrate`
-1 アプリケーションにアクセスしてアプリ名を確認する
+1. アプリケーションにアクセスしてアプリ名を確認する
   `heroku config`
