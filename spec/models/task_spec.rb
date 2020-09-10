@@ -25,8 +25,8 @@ RSpec.describe Task, type: :model do
   # end
 
   describe '検索機能' do
-      let!(:task) {FactoryBot.create(:task, name: 'task', description: "ABCDE", status: "未着手")}
-      let!(:second_task) {FactoryBot.create(:task, name: 'sample', description: "FGHIJK", status: "未着手")}
+      let!(:task) {FactoryBot.create(:task, name: 'task', description: "ABCDE", status: "未着手", priority: "高")}
+      let!(:second_task) {FactoryBot.create(:task, name: 'sample', description: "FGHIJK", status: "未着手", priority: "中")}
       context 'scopeメソッドでタイトルのあいまい検索をした場合' do
         it "検索キーワードを含むタスクが絞り込まれる" do
           # title_seachはscopeで提示したタイトル検索用メソッドである。メソッド名は任意で構わない。

@@ -7,6 +7,7 @@ FactoryBot.define do
     description { 'Factoryで作ったデフォルトのコンテント１' }
     deadline { Date.new(2020, 9, 15) }
     status { '未着手' } #(I18n.t('view.in_progress'))}
+    priority { '高' }
   end
   # 作成するテストデータの名前を「second_task」とします
   # （存在しないクラス名の名前をつける場合、オプションで「このクラスのテストデータにしてください」と指定します）
@@ -15,6 +16,7 @@ FactoryBot.define do
     description { 'in giving' }
     deadline { Date.new(2020, 10, 5) }
     status { '未着手' } #(I18n.t('view.not_yet_started'))}
+    priority { '中' }
   end
 
   factory :third_task, class: Task do
@@ -22,6 +24,7 @@ FactoryBot.define do
     description { 'will happen in the end.' }
     deadline { Date.new(2020, 10, 15) }
     status { '完了' } #(I18n.t('view.completed'))}
+    priority { '低' }
   end
 
 end

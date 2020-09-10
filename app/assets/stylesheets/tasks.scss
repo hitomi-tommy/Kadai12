@@ -1,3 +1,28 @@
-// Place all the styles related to the tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+    margin-top: 20px;
+}
+.table th, td{
+  padding-right: 60px;
+  padding-bottom: 10px;
+}
+.task_name{
+  padding: 5px 0px;
+}
+.row {
+  padding: 2rem;
+}
+.btn{
+  color: #fff;
+  border-color: #17a2b8;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  // background-color: transparent;
+  border: 1px solid;
+  padding: .375rem .75rem;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: .25rem;
+}

@@ -48,8 +48,8 @@ RSpec.describe 'タスク管理機能', type: :system do
   describe '検索機能' do
     before do
       FactoryBot.create(:task)
-      FactoryBot.create(:second_task, name: "happiness", description: 'in giving', status: '未着手')
-      FactoryBot.create(:third_task, name: "test", description: 'will happen in the end.', status: '完了')
+      FactoryBot.create(:second_task, name: "happiness", description: 'in giving', status: '未着手', priority: '低')
+      FactoryBot.create(:third_task, name: "test", description: 'will happen in the end.', status: '完了', priority: '中')
     end
   #
   #   context 'タイトルであいまい検索をした場合' do
