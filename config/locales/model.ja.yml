@@ -12,17 +12,18 @@ ja:
     edit_task: 編集
     delete_task: 削除
     confirm: 本当に削除しますか？
-    create_new_task: タスクを新規作成する
+    create_new_task: 新規作成
     sort_by_deadline: 終了期限でソートする
     sort_by_priority: 優先度でソートする
     please_select: 選択してください
     not_yet_started: 未着手
     in_progress: 着手中
     completed: 完了
-    search_with_task_name: タスク名で検索する
+    search_with_task_name: タスク名で検索
     high: 高
     middle: 中
     low: 低
+    yana: やな
   pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"

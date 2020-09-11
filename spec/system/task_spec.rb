@@ -37,7 +37,7 @@ RSpec.describe 'タスク管理機能', type: :system do
   #
   #       click_on('登録する')
   #       visit tasks_path
-  #       click_on ('終了期限でソートする')
+  #       click_on ('終了期限')
   #       task_list = all('.deadline_row') # タスク一覧を配列として取得するため、View側でidを振っておく
   #       expect(task_list[0]).to have_content Date.new(2020, 9, 15)
   #       expect(task_list[1]).to have_content Date.new(2020, 9, 30)
