@@ -23,7 +23,10 @@ ja:
     high: 高
     middle: 中
     low: 低
-    yana: やな
+    user_update: ユーザー情報の編集
+    user_delete: ユーザーの削除
+    user_create: ユーザーの作成
+    back_admin_screen: 管理画面に戻る
   pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
@@ -55,3 +58,12 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+      admin:
+        new: ユーザーを新規作成しました
+        edit: ユーザー情報を編集しました
+        destroy: ユーザーを削除しました
+        not_authorized: 権限がありません
+        admin_users_cannot_be_deleted: 管理者は削除できません
+        dministrative_authority: 管理権限
+        user_name: ユーザー名
+        task_count: タスク数

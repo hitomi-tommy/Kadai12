@@ -1,5 +1,12 @@
+<%= link_to t('view.user_create'), new_admin_user_path %>
 <h1>管理画面のユーザー一覧画面だよ！</h1>
 
 <% @users.each do |user| %>
   <% user.id %>:<%= user.name %>
+  <%= user.tasks.count %>
+  <%= link_to t('view.check_detail'), admin_user_path(user.id) %>
+  <%= link_to t('view.user_update'), edit_admin_user_path(user.id) %>
+  <%= link_to t('view.user_delete'), [:admin, user], method: :delete, data: { confirm: t('view.confirm')} %>
 <% end %>
+<%= link_to 'タスク一覧画面に戻る', tasks_path %>
+<%= paginate (@users) %>

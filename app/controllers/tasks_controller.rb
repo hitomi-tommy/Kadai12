@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+
   def index
     if params[:sort_expired]
       @tasks = current_user.tasks.order(deadline: :ASC).page(params[:page]).per(3)
@@ -49,8 +51,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    redirect_to tasks_path, notice: t('notice.destroy')
+    if @task.destroy
+      redirect_to tasks_path, notice: t('notice.destroy')
+    else
+      redirect_to admin_users_path, notice: t('notice.notdeleted')
+    end
   end
 
   private

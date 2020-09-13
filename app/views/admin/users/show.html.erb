@@ -1,1 +1,29 @@
+<p>
+  ID:<%= @user.id %>
+</p>
 
+<p>
+  <%= t('view.name') %>:<%= @user.name %>
+</p>
+
+<p><%= t('view.email') %>:<%= @user.email %>
+</p>
+
+<p>
+  <%= t('view.task_list') %>
+  <br>
+  <table align="center">
+    <tr>
+      <th><%= t('view.task_name') %></th>
+      <th><%= t('view.content') %></th>
+    </tr>
+
+    <% @tasks.each do |task| %>
+      <tr class = "task_row">
+        <td><%= task.task_name %></td>
+        <td><%= task.task_description %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
+<%= link_to t('view.back_admin_screen'), admin_users_path %>

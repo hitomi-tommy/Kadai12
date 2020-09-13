@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # before_action :authenticate_user, { only: [:index, :show, :edit, :update] }
+  # before_action :forbid_login_user, { only: :new }
+
   def new
     @user = User.new
   end
@@ -6,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # 保存の成功した場合の処理
+      session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
       render :new
@@ -15,6 +18,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def authenticate_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = t('notice.not_authorized')
+      redirect_to tasks_path
+    end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
