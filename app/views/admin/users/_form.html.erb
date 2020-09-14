@@ -9,13 +9,16 @@
   </div>
 <% end %>
 <%= form_with(model: [:admin, @user], local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :email %></p>
+  <p><%= f.email_field :email %><%= f.label :admin, class: 'form-check-label' do %></p>
+  <%= f.check_box :admin, class: 'form-check-input' %> 管理者権限
+  <% end %>
+  
+  <p><%= f.label :password %></p>
+  <p><%= f.password_field :password %></p>
+  <p><%= f.label :password_confirmation %></p>
+  <p><%= f.password_field :password_confirmation %></p>
   <%= f.submit %>
 <% end %>

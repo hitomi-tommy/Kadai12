@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :current_user
-  before_action :ensure_admin_user
+  # before_action :ensure_admin_user
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -23,6 +23,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
@@ -47,7 +48,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def ensure_admin_user
-    if not current_user.admin
+    unless current_user && current_user.admin == true
       flash[:notice] = t("admin.not_authorized")
       redirect_to(tasks_path)
     end

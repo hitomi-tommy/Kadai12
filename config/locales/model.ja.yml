@@ -27,6 +27,8 @@ ja:
     user_delete: ユーザーの削除
     user_create: ユーザーの作成
     back_admin_screen: 管理画面に戻る
+    user_id: ユーザーID
+    user_task_counts: タスク数
   pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
@@ -58,7 +60,7 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
-      admin:
+  admin:
         new: ユーザーを新規作成しました
         edit: ユーザー情報を編集しました
         destroy: ユーザーを削除しました

@@ -1,29 +1,25 @@
-<p>
-  ID:<%= @user.id %>
-</p>
+<h3>ユーザーの詳細
+<hr>
+<p>ID:<%= @user.id %></p>
+<p><%= t('view.name') %>:<%= @user.name %></p>
+<p><%= t('view.email') %>:<%= @user.email %></p>
+<p><%= t('admin.administrative_authority') %>:<%= @user.admin? ? 'あり' : 'なし'%></p>
+<br>
+<p><%= t('view.task_list') %></p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col"><%= t('view.task_name') %></th>
+    <th scope="col"<%= t('view.content') %></th>
+  </tr>
+</thead>
 
-<p>
-  <%= t('view.name') %>:<%= @user.name %>
-</p>
-
-<p><%= t('view.email') %>:<%= @user.email %>
-</p>
-
-<p>
-  <%= t('view.task_list') %>
-  <br>
-  <table align="center">
-    <tr>
-      <th><%= t('view.task_name') %></th>
-      <th><%= t('view.content') %></th>
+  <% @tasks.each do |task| %>
+    <tr class = "task_row">
+      <td><%= task.name %></td>
+      <td><%= task.description %></td>
     </tr>
-
-    <% @tasks.each do |task| %>
-      <tr class = "task_row">
-        <td><%= task.task_name %></td>
-        <td><%= task.task_description %></td>
-      </tr>
-    <% end %>
-  </table>
+  <% end %>
+</table>
 </p>
 <%= link_to t('view.back_admin_screen'), admin_users_path %>
