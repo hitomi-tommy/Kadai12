@@ -1,7 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :current_user
-  # before_action :ensure_admin_user
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  # before_action :require_admin
 
   def index
     @users = User.includes(:tasks)
@@ -16,7 +15,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to admin_user_url(@user), notice: t('view.admin.new')
+      redirect_to admin_user_url(@user), notice: t('admin.new')
     else
       render :new
     end
@@ -28,7 +27,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: t('view.admin.edit')
+      redirect_to admin_users_path, notice: t('admin.edit')
     else
       render :edit
     end
@@ -40,21 +39,19 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      redirect_to admin_users_path, notice: t('view.admin.destroy')
+      redirect_to admin_users_path, notice: t('admin.destroy')
     else
-      redirect_to admin_users_path, notice: t('view.admin.admin_users_cannot_be_deleted')
+      redirect_to admin_users_path, notice: t('admin.admin_users_cannot_be_deleted')
     end
   end
 
   private
-  def ensure_admin_user
-    unless current_user && current_user.admin == true
-      flash[:notice] = t("admin.not_authorized")
-      redirect_to(tasks_path)
-    end
+  def require_admin
+    redirect_to tasks_url unless current_user.admin?
+    flash[:danger] = '管理者権限が必要です'
   end
 
-  def set_user
+  def set_admin
     @user = User.find(params[:id])
   end
 

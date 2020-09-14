@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user, { only: [:index, :show, :edit, :update] }
-  # before_action :forbid_login_user, { only: :new }
+  before_action :user_check, only: [:new, :create]
+
 
   def new
+    # if session[:user_id]
+    #   redirect_to user_url(id: session[:user_id])
+    # end
     @user = User.new
   end
 
@@ -17,12 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-  end
-
-  def authenticate_user
-    if @current_user.id != params[:id].to_i
-      flash[:notice] = t('notice.not_authorized')
+    if current_user.id == params[:id].to_i
+      @user = User.find(params[:id])
+    else
       redirect_to tasks_path
     end
   end
@@ -35,7 +35,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password,:password_confirmation)
   end
 end
