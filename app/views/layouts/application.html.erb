@@ -14,12 +14,13 @@
     </header>
     <div class="container">
 
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+    <% if current_user %>
+      <%= link_to 'タスク一覧', tasks_path, class: 'nav-link' %>
+      <% if current_user.admin? %>
+        <%= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link' %>
+      <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
     <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
+      <%= link_to 'ログイン', login_path, class: 'nav-link' %>
     <% end %>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
