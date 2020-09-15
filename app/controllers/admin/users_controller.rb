@@ -47,8 +47,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def require_admin
-    redirect_to tasks_path unless current_user.admin?
-    flash[:danger] = '管理者権限が必要です'
+    redirect_to tasks_path, notice: t('admin.not_authorized') unless current_user.admin?
   end
 
   def set_admin

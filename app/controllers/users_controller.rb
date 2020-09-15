@@ -2,10 +2,12 @@ class UsersController < ApplicationController
   skip_before_action :user_check, only: [:new, :create]
 
   def new
-    # if session[:user_id]
-    #   redirect_to user_url(id: session[:user_id])
-    # end
-    @user = User.new
+    if logged_in?
+      flash[:notice] = "既にログインしています"
+      redirect_to tasks_path
+    else
+      @user = User.new
+    end
   end
 
   def create

@@ -65,7 +65,7 @@ ja:
     new: ユーザーを新規作成しました
     edit: ユーザー情報を編集しました
     destroy: ユーザーを削除しました
-    not_authorized: 権限がありません
+    not_authorized: 管理者権限がありません
     admin_users_cannot_be_deleted: 管理者は削除できません
     dministrative_authority: 管理権限
     user_name: ユーザー名
