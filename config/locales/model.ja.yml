@@ -40,6 +40,7 @@ ja:
     create: タスクを作成しました！
     update: タスクを編集しました！
     destroy: タスクを削除しました！
+    already_logged_in: 既にログインしています
   helpers:
     submit:
       create: 登録する
