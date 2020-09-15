@@ -29,6 +29,7 @@ ja:
     back_admin_screen: 管理画面に戻る
     user_id: ユーザーID
     user_task_counts: タスク数
+    login: ログイン
   pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"

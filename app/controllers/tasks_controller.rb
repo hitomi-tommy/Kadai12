@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :current_user
+  # before_action :user_check, only: [:new, :create]
 
   def index
     if params[:sort_expired]

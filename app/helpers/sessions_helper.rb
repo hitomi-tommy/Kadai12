@@ -7,4 +7,6 @@ module SessionsHelper
     current_user.present?
   end
 
+  
+
 end
