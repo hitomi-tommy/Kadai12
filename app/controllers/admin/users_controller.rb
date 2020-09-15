@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
-  # before_action :require_admin
+  before_action :require_admin
 
   def index
     @users = User.includes(:tasks)
@@ -47,7 +47,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def require_admin
-    redirect_to tasks_url unless current_user.admin?
+    redirect_to tasks_path unless current_user.admin?
     flash[:danger] = '管理者権限が必要です'
   end
 
