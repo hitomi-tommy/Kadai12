@@ -27,3 +27,15 @@
    padding-top: 40px;
    /* background: url("https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80") center center / cover no-repeat; */
  }
+.btn-primary{
+  background-color: #fff;
+  border-color: #2e6da4;
+}
+.btn-success{
+  background-color: #fff;
+  border-color: #4cae4c;
+}
+.btn-danger{
+  background-color: #fff;
+  border-color: #d43f3a;
+}

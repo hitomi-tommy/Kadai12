@@ -7,6 +7,9 @@
   <%= form.label :status, t('view.task_status') %>
   <%= form.select :status_search, [ t('view.not_yet_started'), t('view.in_progress'), t('view.completed') ], include_blank: t('view.please_select') %>
 
+  <%= form.label :labels, t('view.label') %>
+  <%= form.select :label_id, Label.pluck(:name, :id), include_blank: t('view.please_select') %>
+
   <%= form.hidden_field :search, value: 'true' %>
   <%= form.submit (t('helpers.submit.search')) %>
   <% end %>
@@ -21,6 +24,7 @@
       <th scope="col"><%= link_to t('view.task_deadline'), tasks_path(sort_expired: "true") %></th>
       <th scope="col"><%= t('view.task_status') %></th>
       <th scope="col"><%= link_to t('view.task_priority'), tasks_path(sort_priority: "true") %></th>
+      <th scope="col"><%= t('view.label') %></th>
       <th colspan="1" scope="col">編集機能</th>
     </tr>
   </thead>
@@ -32,14 +36,18 @@
       <td class="deadline_row"><%= task.deadline %></td>
       <td><%= task.status %></td>
       <td><%= task.priority %></td>
+      <td id='labels'>
+        <% task.labels.each do |label| %>
+        <%= label.name %>
+        <% end %>
+      </td>
       <td><%= link_to t('view.check_detail'), task_path(task.id), class: "btn btn-primary" %>
         <%= link_to t('view.edit_task'), edit_task_path(task.id), class: "btn btn-success" %>
         <%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: { confirm: t('view.confirm') }, class: "btn btn-danger" %></td>
-      </tr>
-
-      <% end %>
-    </tbody>
-  </table>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
   <div class="btn-outline-info">
     <%= link_to t('view.create_new_task'), new_task_path, class: "btn btn-primary"  %>
