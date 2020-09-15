@@ -1,0 +1,28 @@
+<h1>ユーザー一覧</h1>
+
+<%= link_to t('view.user_create'), new_admin_user_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead> 
+    <tr>
+      <th scope="col"><%= t('view.user_id') %></th>
+      <th scope="col"><%= t('view.user_name') %></th>
+      <th scope="col"><%= t('view.user_task_counts') %></th>
+      <th colspan="1" scope="col">編集機能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.tasks.count %></td>
+    <td><%= link_to t('view.check_detail'), admin_user_path(user.id), class: 'btn btn-primary mr-3' %>
+    <%= link_to t('view.user_update'), edit_admin_user_path(user.id), class: 'btn btn-primary mr-3' %>
+    <%= link_to t('view.user_delete'), [:admin, user], method: :delete, data: { confirm: t('view.confirm')}, class: 'btn btn-danger' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'タスク一覧画面に戻る', tasks_path %>
+<%= paginate (@users) %>

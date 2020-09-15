@@ -12,17 +12,24 @@ ja:
     edit_task: 編集
     delete_task: 削除
     confirm: 本当に削除しますか？
-    create_new_task: タスクを新規作成する
+    create_new_task: 新規作成
     sort_by_deadline: 終了期限でソートする
     sort_by_priority: 優先度でソートする
     please_select: 選択してください
     not_yet_started: 未着手
     in_progress: 着手中
     completed: 完了
-    search_with_task_name: タスク名で検索する
+    search_with_task_name: タスク名で検索
     high: 高
     middle: 中
     low: 低
+    user_update: ユーザー情報の編集
+    user_delete: ユーザーの削除
+    user_create: ユーザーの作成
+    back_admin_screen: 管理画面に戻る
+    user_id: ユーザーID
+    user_task_counts: タスク数
+    login: ログイン
   pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
@@ -33,6 +40,7 @@ ja:
     create: タスクを作成しました！
     update: タスクを編集しました！
     destroy: タスクを削除しました！
+    already_logged_in: 既にログインしています
   helpers:
     submit:
       create: 登録する
@@ -54,3 +62,12 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+  admin:
+    new: ユーザーを新規作成しました
+    edit: ユーザー情報を編集しました
+    destroy: ユーザーを削除しました
+    not_authorized: 管理者権限がありません
+    admin_users_cannot_be_deleted: 管理者は削除できません
+    dministrative_authority: 管理権限
+    user_name: ユーザー名
+    task_count: タスク数
