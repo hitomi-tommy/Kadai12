@@ -25,14 +25,13 @@ RSpec.describe 'ラベル機能', type: :system do
         select '未着手', from: 'task_status'
         select '高', from: 'task_priority'
         check 'Monday'
-        sleep 1
         #find('label[for="Monday"]').click
         # find(:label, for: 'Monday').click
         click_on '登録する'
         # expect(page).to have_content 'task_name'
         # expect(page).to have_content '2020'
         # expect(page).to have_content '未着手'
-        expect(page).to have_checked_field('Monday')
+        expect(page).to have_content 'Monday'
         # expect(page).to have_content '高'
       end
     end
@@ -48,52 +47,58 @@ RSpec.describe 'ラベル機能', type: :system do
         select '着手中', from: 'task_status'
         select '低', from: 'task_priority'
         check 'Friday'
-        sleep 1
         # find('label[for="Friday"]').click
         # find(:label, for: 'Friday').click
         click_on '登録する'
         expect(page).to have_content 'Friday'
       end
     end
-    # context '任意のタスク詳細画面に遷移した場合' do
-    #   it '該当タスクの内容とラベルが表示される' do
-    #     visit new_task_path
-    #     fill_in :task_task_name, with: 'task_name'
-    #     fill_in :task_content, with: 'task'
-    #     select '2021', from: :task_deadline_1i
-    #     select '着手中', from: 'task_status'
-    #     select '高', from: 'task_priority'
-    #     check 'work'
-    #     click_on "Post task"
-    #     sleep 0.5
-    #     tds = page.all('td')
-    #     tds[6].click
-    #     expect(page).to have_content 'work'
-    #   end
-    # end
+    context '任意のタスク詳細画面に遷移した場合' do
+      it '該当タスクの内容とラベルが表示される' do
+        visit new_task_path
+        fill_in 'task[name]', with: 'second_task_name'
+        fill_in 'task[description]', with: 'task2'
+        fill_in 'task[deadline]', with: Date.new(2021, 9, 30)
+        select '未着手', from: 'task_status'
+        select '高', from: 'task_priority'
+        check 'Friday'
+        click_on "登録する"
+        expect(page).to have_content '未着手'
+        expect(page).to have_content '高'
+        expect(page).to have_content 'Friday'
+      end
+    end
   end
 
-  # describe '検索機能' do
-  #   let!(:user) { FactoryBot.create(:user) }
-  #   before do
-  #     visit new_task_path
-  #     fill_in :task_task_name, with: 'task_name'
-  #     fill_in :task_content, with: 'task'
-  #     select '2021', from: :task_deadline_1i
-  #     select '着手中', from: 'task_status'
-  #     select '高', from: 'task_priority'
-  #     check 'work'
-  #     click_on "Post task"
-  #     visit tasks_path
-  #   end
-  #  context 'ラベルのみで検索した場合' do
-  #    it 'ラベルで検索した場合' do
-  #      select 'work', from: 'label_id'
-  #      click_on '検索'
-  #      task = all('tbody tr')
-  #      expect(task[0]).to have_content 'work'
-  #     end
-  #   end
-  # end
+  describe '検索機能' do
+    # let!(:user) { FactoryBot.create(:user) }
+    # before do
+    #   visit new_task_path
+    #   fill_in 'task[name]', with: 'task_name'
+    #   fill_in 'task[description]', with: 'task'
+    #   fill_in 'task[deadline]', with: Date.new(2020, 9, 30)
+    #   select '未着手', from: 'task_status'
+    #   select '高', from: 'task_priority'
+    #   check 'Monday'
+    #   click_on '登録する'
+    #   visit tasks_path
+    # # end
+   context 'ラベルのみで検索した場合' do
+     it 'ラベルで検索した場合' do
+       visit new_task_path
+       fill_in 'task[name]', with: 'task_name'
+       fill_in 'task[description]', with: 'task'
+       fill_in 'task[deadline]', with: Date.new(2020, 9, 30)
+       select '未着手', from: 'task_status'
+       select '高', from: 'task_priority'
+       check 'Monday'
+       click_on '登録する'
+       visit tasks_path
+       select 'Monday', from: 'label_id'
+       click_on '検索する'
+       expect(page).to have_content 'Monday'
+      end
+    end
+  end
 
 end
