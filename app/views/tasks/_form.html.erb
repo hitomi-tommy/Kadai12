@@ -31,10 +31,21 @@
     <%= form.label t('view.task_priority') %>
     <%= form.select :priority, [t('view.high'), t('view.middle'), t('view.low')], include_blank: [t('view.please_Select')] %>
     </div>
-    <div class="label">
+    <!-- <div class="label_checkbox">
     <%= form.label t('view.label') %>
-    <p id="labels"><%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %></p>
-  </div>
+    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+  </div> -->
+    <div class="field">
+      <% Label.all.each do |label| %>
+        <% if action_name == 'new' || action_name == 'create' %>
+          <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
+          <label><%= label.name %></label>
+        <% elsif action_name == 'edit' || action_name == 'update' %>
+          <%= form.check_box :label_ids, { multiple: true, checked: @task.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
+          <label><%= label.name %></label>
+        <% end %>
+      <% end %>
+    </div>
   <%= form.submit (t('helpers.submit.create')) %>
 <% end %>
 <br>

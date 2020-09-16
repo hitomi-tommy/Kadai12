@@ -5,6 +5,6 @@ class Task < ApplicationRecord
   scope :task_name_like, -> name { where('name LIKE ?', "%#{name}%") }
   scope :status, -> status { where(status: status) }
   enum priority:{ 高: 0, 中: 1, 低: 2 }
-  has_many :labellings, dependent: :destroy
+  has_many :labellings, dependent: :destroy, foreign_key: 'task_id'
   has_many :labels, through: :labellings, source: :label
 end

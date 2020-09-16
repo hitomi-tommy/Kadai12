@@ -4,21 +4,23 @@ class TasksController < ApplicationController
 
   def index
     if params[:sort_expired]
-      @tasks = current_user.tasks.order(deadline: :ASC).page(params[:page]).per(3)
+      @tasks = current_user.tasks.order(deadline: :ASC).page(params[:page]).per(5)
     elsif params[:sort_priority]
-      @tasks = current_user.tasks.order(priority: :ASC).page(params[:page]).per(3)
+      @tasks = current_user.tasks.order(priority: :ASC).page(params[:page]).per(5)
     elsif params[:search].present?
       if params[:name_search].present? && params[:status_search].present?
-        @tasks = Task.status(params[:status_search]).task_name_like(params[:name_search]).page(params[:page]).per(3)
+        @tasks = Task.status(params[:status_search]).task_name_like(params[:name_search]).page(params[:page]).per(5)
       elsif params[:name_search].present?
-        @tasks = Task.task_name_like(params[:name_search]).page(params[:page]).per(3)
+        @tasks = Task.task_name_like(params[:name_search]).page(params[:page]).per(5)
       elsif params[:status_search].present?
-        @tasks = Task.status(params[:status_search]).page(params[:page]).per(3)
+        @tasks = Task.status(params[:status_search]).page(params[:page]).per(5)
+      elsif params[:label_id].present?
+        @tasks = Task.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).per(5)
       else
-        @tasks = current_user.tasks.order(created_at: :ASC).page(params[:page]).per(3)
+        @tasks = current_user.tasks.order(created_at: :ASC).page(params[:page]).per(5)
       end
     else
-      @tasks = current_user.tasks.order(created_at: :ASC).page(params[:page]).per(3)
+      @tasks = current_user.tasks.order(created_at: :ASC).page(params[:page]).per(5)
     end
   end
 
@@ -59,7 +61,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description, :deadline, :status, :priority)
+    params.require(:task).permit(:name, :description, :deadline, :status, :priority, label_ids: [])
   end
 
   def set_task

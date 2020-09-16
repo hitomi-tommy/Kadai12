@@ -1,4 +1,4 @@
-10.time do |n|
+10.times do |n|
   name = Faker::Movies::PrincessBride.name
   email = Faker::Internet.email
   password = "password"
