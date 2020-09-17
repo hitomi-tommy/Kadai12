@@ -71,18 +71,18 @@ RSpec.describe 'ラベル機能', type: :system do
   end
 
   describe '検索機能' do
-    # let!(:user) { FactoryBot.create(:user) }
-    # before do
-    #   visit new_task_path
-    #   fill_in 'task[name]', with: 'task_name'
-    #   fill_in 'task[description]', with: 'task'
-    #   fill_in 'task[deadline]', with: Date.new(2020, 9, 30)
-    #   select '未着手', from: 'task_status'
-    #   select '高', from: 'task_priority'
-    #   check 'Monday'
-    #   click_on '登録する'
-    #   visit tasks_path
-    # # end
+    let!(:user) { FactoryBot.create(:user) }
+    before do
+      visit new_task_path
+      fill_in 'task[name]', with: 'task_name'
+      fill_in 'task[description]', with: 'task'
+      fill_in 'task[deadline]', with: Date.new(2020, 9, 30)
+      select '未着手', from: 'task_status'
+      select '高', from: 'task_priority'
+      check 'Monday'
+      click_on '登録する'
+      visit tasks_path
+    end
    context 'ラベルのみで検索した場合' do
      it 'ラベルで検索した場合' do
        visit new_task_path
@@ -100,5 +100,4 @@ RSpec.describe 'ラベル機能', type: :system do
       end
     end
   end
-
 end
