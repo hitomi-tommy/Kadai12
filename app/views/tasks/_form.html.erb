@@ -10,7 +10,7 @@
         </ul>
       </div>
     <% end %>
-  
+
     <div class="name">
       <%= form.label t('view.task_name') %>
       <%= form.text_field :name %>
@@ -31,6 +31,23 @@
     <%= form.label t('view.task_priority') %>
     <%= form.select :priority, [t('view.high'), t('view.middle'), t('view.low')], include_blank: [t('view.please_Select')] %>
     </div>
+
+
+    <div class="field">
+        <%# if action_name == 'new' || action_name == 'create' %>
+      <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+          <%#= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false}, label[:id], ""%>
+          <%# end %>
+        <%# elsif action_name == 'edit' || action_name == 'update' %>
+          <%#= form.label :label_ids do %>
+          <%#= form.collection_check_boxes :labels, Label.all, :id, :name %>
+            <%#= form.check_box :label_ids, { multiple: true, checked: @task.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
+            <%#= label.name %>
+          <%# end %>
+        <%# end %>
+    </div>
+
   <%= form.submit (t('helpers.submit.create')) %>
 <% end %>
+<br>
 <%= link_to 'タスク一覧画面に戻る', tasks_path %>

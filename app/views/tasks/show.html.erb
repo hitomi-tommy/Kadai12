@@ -4,4 +4,9 @@
 <p><%= t('view.task_deadline') %>: <%= @task.deadline %></p>
 <p><%= t('view.task_status') %>: <%= @task.status %></p>
 <p><%= t('view.task_priority') %>: <%= @task.priority %></p>
-<%= link_to 'タスク一覧画面に戻る', tasks_path %>
+<p><%= t('view.label') %>:
+  <% @task.labellings.each do |labelling| %>
+  <%= labelling.label.name %>
+  <% end %>
+
+<p><%= link_to 'タスク一覧画面に戻る', tasks_path %></p>

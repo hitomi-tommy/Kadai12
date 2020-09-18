@@ -30,6 +30,7 @@ ja:
     user_id: ユーザーID
     user_task_counts: タスク数
     login: ログイン
+    label: ラベル
   pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
